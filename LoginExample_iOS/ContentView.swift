@@ -11,8 +11,11 @@ import CoreData
 struct ContentView: View {
 
     var body: some View {
-        SignupView()
+        NavigationStack {
+            LoginView()
+        }
     }
+    
 }
 
 #Preview {

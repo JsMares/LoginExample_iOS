@@ -13,13 +13,13 @@ struct SignupView : View {
         ZStack {
             Image("Fondo")
                 .resizable()
-                .scaledToFill()
                 .ignoresSafeArea()
             
             VStack {
                 Spacer()
                 FormSignup()
-            }.ignoresSafeArea()
+            }
+            .ignoresSafeArea()
         }
         
     }
@@ -52,7 +52,6 @@ private struct FormSignup : View {
                 topTrailingRadius: 30
             )
         )
-        .padding(.horizontal)
     }
 }
 
@@ -170,8 +169,12 @@ private struct LoginRedirectButton : View {
     var body: some View {
         HStack {
             Text("¿Ya tienes una cuenta?")
-            Text("INICIAR SESIÓN")
-                .foregroundStyle(Color.blue)
+            
+            NavigationLink(destination: LoginView()) {
+                Text("INICIAR SESIÓN")
+                    .foregroundStyle(Color.blue)
+            }
+            
         }
         .padding(.vertical)
     }

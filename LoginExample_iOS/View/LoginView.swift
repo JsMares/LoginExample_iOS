@@ -10,7 +10,7 @@ import SwiftUI
 struct LoginView : View {
     var body: some View {
     
-        ZStack {
+        /*ZStack {
             Image("Fondo")
                 .resizable()
                 .scaledToFill()
@@ -20,6 +20,18 @@ struct LoginView : View {
                 Spacer()
                 LoginForm()
             }.ignoresSafeArea()
+        }*/
+        
+        ZStack {
+            Image("Fondo")
+                .resizable()
+                .ignoresSafeArea()
+            
+            VStack {
+                Spacer()
+                LoginForm()
+            }
+            .ignoresSafeArea()
         }
     }
 }
@@ -49,7 +61,6 @@ private struct LoginForm : View {
                 topTrailingRadius: 30
             )
         )
-        .padding(.horizontal)
     }
 }
 
@@ -177,8 +188,12 @@ private struct SignupRedirectButton : View {
     var body: some View {
         HStack {
             Text("¿No tienes una cuenta?")
-            Text("REGISTRARME")
-                .foregroundStyle(Color.blue)
+            
+            NavigationLink(destination: SignupView()) {
+                Text("REGISTRARME")
+                    .foregroundStyle(Color.blue)
+            }
+        
         }.padding(.vertical)
     }
 }
